@@ -3,7 +3,9 @@ This utility can be used to backfill and recalculate analyses in bulk, or to see
 
 Backfilling and Recalculation:
 
-In my time on the AF and Analytics support team, there have been many cases when customers want to backfill or recalculate their analyses in bulk. The Management tab in PI System Explorer allows you to do this, however it can be difficult to quickly single out the analyses you wish to backfill, especially in very large AF databases. For example, if you want to backfill all the analyses matching a certain name and element template, that can be done easily. But if you want to do this only for child elements of a certain element in your database, you will have to scroll through the list of matching analyses and select them one by one. This utility lets you avoid this tedious process by specifying a root element underneath which to search. 
+In my time on the AF and Analytics support team, there have been many cases when customers want to backfill or recalculate their analyses in bulk. The Management tab in PI System Explorer allows you to do this, however it can be difficult to quickly single out the analyses you wish to backfill, especially in very large AF databases. For example, if you want to backfill all the analyses matching a certain name and element template, that can be done easily. But if you want to do this only for child elements of a certain element in your database, you will have to scroll through the list of matching analyses and select them one by one. 
+
+This utility lets you avoid this tedious process by specifying a root element underneath which to search. 
 
 Output tag verification:
 
