@@ -44,10 +44,28 @@ Command line parameters:
 /Mode:  Values: "backfill"    	- Default value. Fill data gaps in time range
                 "recalculate" 	- Delete existing data and recalculate data in time range
                 "findTagInputs" - Print out the paths to all analyses writing to the tag specified by /TagName
-			Aliases: /inputs
+			Aliases: "inputs"
 
 [/Help]: Prints this help file.
 	Aliases: /?
+
+============
+Examples:
+
+Backfill all analyses for the element 'B-210' on database 'NuGreen' on AF Server 'AFServ' for the last month:
+
+	AnalysisUtility.exe /AFServer AFServ /Database Nugreen /element B-210 /st *-1mo /et * /SearchFullHierarchy true /mode backfill
+	AnalysisUtility.exe /AFServer AFServ /Database Nugreen /root "Nugreen\Houston\Cracking Process\Equipment" /element B-210 /st *-1mo /et * /mode backfill
+
+Recalculate all analyses on boiler elements underneath "Nugreen/Tucson" on the default AF Server and database for January 2017:
+
+	AnalysisUtility.exe /root "Nugreen/Tucson" /template Boiler /start 1/1/2017 /end 2/1/2017 /searchfullhierarchy true /mode recalculate
+
+Find all the analyses writing to the tag 'Z2.Cdt158_Times_Ten2':
+
+	AnalysisUtility.exe /mode inputs /tag Z2.Cdt158_Times_Ten2
+
+============
 
 ** Wildcards: 
 
