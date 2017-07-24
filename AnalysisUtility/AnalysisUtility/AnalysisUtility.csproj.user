@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
-    <StartArguments>/mode list /tagname Z1.Cdt158_Times_Ten_Variable2</StartArguments>
+    <StartArguments>/root "Nugree\Houston\Cracking Process\Equipment" /element B-210 /st %2a-1mo /et %2a /mode backfill</StartArguments>
   </PropertyGroup>
 </Project>

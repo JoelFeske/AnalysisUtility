@@ -243,14 +243,25 @@ namespace AnalysisUtility
                 AFElement elementToAdd = null;
                 for (int i = 0; i < searchRootPathStrings.Length; i++)
                 {
-                    if (i == 0)
+                    try
                     {
-                        elementToAdd = AFElement.FindElements(AFDB, null, searchRootPathStrings[i], null, null, null, AFElementType.Any, false, AFSortField.Name, AFSortOrder.Ascending, 1).Single();
+                        if (i == 0)
+                        {
+                            elementToAdd = AFElement.FindElements(AFDB, null, searchRootPathStrings[i], null, null, null, AFElementType.Any, false, AFSortField.Name, AFSortOrder.Ascending, 1).Single();
+                        }
+                        else
+                        {
+                            elementToAdd = AFElement.FindElements(AFDB, searchRootPathElements[i - 1], searchRootPathStrings[i], null, null, null, AFElementType.Any, false, AFSortField.Name, AFSortOrder.Ascending, 1).Single();
+                        }
                     }
-                    else
+                    catch (InvalidOperationException)
                     {
-                        elementToAdd = AFElement.FindElements(AFDB, searchRootPathElements[i - 1], searchRootPathStrings[i], null, null, null, AFElementType.Any, false, AFSortField.Name, AFSortOrder.Ascending, 1).Single();
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.WriteLine("\nInvalid root path.");
+                        Console.ForegroundColor = NormalTextColor;
+                        return searchRootPathElements;
                     }
+
                     searchRootPathElements.Add(elementToAdd);
                 }
 
