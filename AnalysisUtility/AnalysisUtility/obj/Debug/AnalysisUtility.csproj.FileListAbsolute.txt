@@ -1,0 +1,8 @@
+c:\users\jfeske\documents\visual studio 2015\Projects\AnalysisUtility\AnalysisUtility\bin\Debug\AnalysisUtility.exe.config
+c:\users\jfeske\documents\visual studio 2015\Projects\AnalysisUtility\AnalysisUtility\bin\Debug\AnalysisUtility.exe
+c:\users\jfeske\documents\visual studio 2015\Projects\AnalysisUtility\AnalysisUtility\bin\Debug\AnalysisUtility.pdb
+c:\users\jfeske\documents\visual studio 2015\Projects\AnalysisUtility\AnalysisUtility\bin\Debug\OSIsoft.AFSDK.dll
+c:\users\jfeske\documents\visual studio 2015\Projects\AnalysisUtility\AnalysisUtility\bin\Debug\OSIsoft.AFSDK.xml
+c:\users\jfeske\documents\visual studio 2015\Projects\AnalysisUtility\AnalysisUtility\obj\Debug\AnalysisUtility.csprojResolveAssemblyReference.cache
+c:\users\jfeske\documents\visual studio 2015\Projects\AnalysisUtility\AnalysisUtility\obj\Debug\AnalysisUtility.exe
+c:\users\jfeske\documents\visual studio 2015\Projects\AnalysisUtility\AnalysisUtility\obj\Debug\AnalysisUtility.pdb
