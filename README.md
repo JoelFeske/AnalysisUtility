@@ -11,4 +11,4 @@ Output tag verification:
 
 Customers often call in complaining that erroneous data is being written to the output tags of their analyses. For example, they may have an analysis scheduled to run every ten minutes, but they are seeing data written every five minutes, and the data from the off times does not look like it belongs there. In these situations, it is almost always the case that another analysis somewhere in their database is writing to the same tag. Finding out which analyses these are can be quite a tedious process, with tech support engineers poring over buffer traces and database XML files to find the culprits. 
 
-This utility allows you to enter a tag name and find the full path to all analyses that write to it.
+This utility allows you to enter a tag name and find the full paths to all analyses that write to it.
