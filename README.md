@@ -1,85 +1,12 @@
 # AnalysisUtility
 This utility can be used to backfill and recalculate analyses in bulk, or to see which analyses are writing to a certain PI Tag.
 
-Command line parameters:
+Backfilling and Recalculation:
 
-	* Parameter names in brackets denote optional parameters
-	* Parameter names are NOT case sensitive
-	* To pass a parameter value that includes a space, enclose it in double quotes
+In my time on the AF and Analytics support team, there have been many cases when customers want to backfill or recalculate their analyses in bulk. The Management tab in PI System Explorer allows you to do this, however it can be difficult to quickly single out the analyses you wish to backfill, especially in very large AF databases. For example, if you want to backfill all the analyses matching a certain name and element template, that can be done easily. But if you want to do this only for child elements of a certain element in your database, you will have to scroll through the list of matching analyses and select them one by one. This utility lets you avoid this tedious process by specifying a root element underneath which to search. 
 
-[/AFServer]: The name of the AF Server machine hosting your AF Database. If left out, the default AF Server will be used.
-	Aliases: /server
+Output tag verification:
 
-[/AFDatabase]: The name of the AF Database containing the analyses to be backfilled. If left out, the default database on the specified AF Server will 
+Customers often call in complaining that erroneous data is being written to the output tags of their analyses. For example, they may have an analysis scheduled to run every ten minutes, but they are seeing data written every five minutes, and the data from the off times does not look like it belongs there. In these situations, it is almost always the case that another analysis somewhere in their database is writing to the same tag. Finding out which analyses these are can be quite a tedious process, with tech support engineers poring over buffer traces and database XML files to find the culprits. 
 
-be used.
-	Aliases: /database
-		 /db
-
-[/SearchRootPath]: The utility will only search elements below the element specified in this path. E.g. if you pass the path "NuGreen\Houston\Cracking 
-
-Process\Equipment", the utility will search only elements that are children (or grandchildren, etc.) of Equipment. If left out, the utility will 
-
-search the entire database.
-	Aliases: /root
-
-[/ElementName]: The name of the element that contains the analyses to be backfilled. Accepts wildcards**, used to specify multiple elements at once.  
-
-If left out, all element names will be matched.
-	Aliases: /element
-		 /elem
-
-[/ElementTemplate]: The template of the element that contains the analysis to be backfilled. This allows you to backfill only analyses using a certain 
-
-template. Accepts wildcards**, used to specify multiple templates at once.
-	Aliases: /template
-
-[/AnalysisName]: The name of the analyses to be backfilled. Accepts wildcards**, used to specify multiple analyses at once. If left out, all analysis 
-
-names will be matched.
-	Aliases: /analysis
-
-[/SearchFullHierarchy]: If true, the utility will search the entire tree below the element specified in /SearchRootPath. If left blank, its default 
-
-value is false.
-
-/StartTime: When to start the backfill/recalculation. Format "mm/dd/yyyy [hh:mm:ss]". Also accepts PI Time syntax.
-	Aliases: /start
-		 /st
-
-/EndTime: When to end the backfill/recalculation. Format "mm/dd/yyyy [hh:mm:ss]". Also accepts PI Time syntax.
-	Aliases: /end
-		 /et
-                                     
-[/TagName]: Required if /Mode == findTagInputs. The tag name for which to search for input analyses.  
-	Aliases: /tag
-		 /pitag
-		 /pipoint
-
-/Mode:  Values: "backfill"    	- Default value. Fill data gaps in time range
-                "recalculate" 	- Delete existing data and recalculate data in time range
-                "findTagInputs" - Print out the paths to all analyses writing to the tag specified by /TagName
-			Aliases: /inputs
-
-[/Help]: Prints this help file.
-	Aliases: /?
-
-** Wildcards: 
-
-The query string (or match pattern) can include regular characters and wildcard characters. Regular characters must match exactly the characters 
-
-specified in the query string. Wildcard characters can be matched with arbitrary fragments of the query string. Wildcard characters can be escaped 
-
-using the single backslash (\) character. Use a double backslash (\\) to match a single backslash. The syntax of the query string has the following 
-
-rules:
-	-If null or empty string, then everything will be matched.
-	-If no wildcards, then an exact match on the query string is performed.
-	-Wildcard * can be placed anywhere in the query string and matches zero or more characters.
-	-Wildcard ? can be placed anywhere in the query string and matches exactly one character.
-	-One character in a set of characters are matched by placing them within [ ]. For example, a[bc] would match 'ab' or 'ac', but it would not 
-
-match 'ad' or 'abd'.
-	-One character in a set of characters are not matched by placing them within [! ]. For example, a[!bc] would match 'ad', but it would not 
-
-match 'ab', 'ac', or 'abd'.
+This utility allows you to enter a tag name and find the full path to all analyses that write to it.
